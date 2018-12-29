@@ -97,7 +97,7 @@ ml.supp([f1,f3,f8,f9,f2,f6,f7])
 ```
 Output:
 ```python
-1.0
+0.1
 ```
 
 ### Confidence
