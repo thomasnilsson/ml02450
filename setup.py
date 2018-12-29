@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ml02450',
-    version='0.0.4',
+    version='1.0.0',
     packages=[''],
     url='https://github.com/thomasnilsson/ml02450',
     license='MIT',
