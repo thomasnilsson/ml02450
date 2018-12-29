@@ -5,7 +5,7 @@ Tip: *The functions can also be used as a result-checking mechanism if you still
 ## Install
 Install this package with pip:
 ```bash
-pip install ml02450
+!pip install --ignore-installed ml02450
 ```
 Disclaimer: *The author of most of this package is [Tue Herlau](https://www.dtu.dk/english/Service/Phonebook/Person?id=43504&cpid=109221&tab=1)*
 
