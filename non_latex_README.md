@@ -59,8 +59,8 @@ w[24]: 0.025000
 ### Naive Bayes
 Example from exam, fall 2018. 
 
-Given the following transaction matrix, where the rows correspond to a feature ![](https://tex.s2cms.ru/svg/%24f_i%24), and the classes being given by the vector ![](https://tex.s2cms.ru/svg/%24y%24), 
-what is ![](https://tex.s2cms.ru/svg/%24P%28y%3D1%20%5Cmid%20f_1%3D1%2C%20f_2%3D1.%20f_6%3D0%29%24)?
+Given the following transaction matrix, where the rows correspond to a feature $f_i$, and the classes being given by the vector $y$, 
+what is $P(y=1 \mid f_1=1, f_2=1. f_6=0)$?
 ```python
 X = np.array([
     [1,1,0,0,0,1,0,0,0,1],
@@ -84,14 +84,14 @@ x = [1,1,0]
 ml.naive_bayes(y, x, f1, f2, f6)
 ```
 
-The probabilities ![](https://tex.s2cms.ru/svg/%24P%28y%3Dc%20%5Cmid%20f_1%3D1%2C%20f_2%3D1.%20f_6%3D0%29%24) for ![](https://tex.s2cms.ru/svg/%24c%3D1%2C2%2C3%24) is given by the following vector:
+The probabilities $P(y=c \mid f_1=1, f_2=1. f_6=0)$ for $c=1,2,3$ is given by the following vector:
 ```python
 array([0.45454545, 0.54545455, 0.        ])
 ```
-The answer is therefore ![](https://tex.s2cms.ru/svg/%24y%3D0.45%24).
+The answer is therefore $y=0.45$.
 
 ### Support
-Given the transaction matrix, the support of the item-set ![](https://tex.s2cms.ru/svg/%24%5C%7Bf_1%2C%20f_3%2C%20f_8%2C%20f_9%2C%20f_2%2C%20f_6%2C%20f_7%5C%7D%24)  can be calculated using the `supp(I)` function: 
+Given the transaction matrix, the support of the item-set ${f_1, f_3, f_8, f_9, f_2, f_6, f_7}$  can be calculated using the `supp(I)` function: 
 ```python
 ml.supp([f1,f3,f8,f9,f2,f6,f7])
 ```
@@ -101,7 +101,7 @@ Output:
 ```
 
 ### Confidence
-Given the transaction matrix, what is the confidence of the rule ![](https://tex.s2cms.ru/svg/%24%5C%7Bf_1%2C%20f_3%2C%20f_8%2C%20f_9%5C%7D%20%5Crightarrow%20%5C%7Bf_2%2Cf_6%2Cf_7%5C%7D%24)  
+Given the transaction matrix, what is the confidence of the rule ${f_1, f_3, f_8, f_9} \rightarrow {f_2,f_6,f_7}$  
 ```python
 a = [f1,f3,f8,f9]
 b = [f2,f6,f7]
