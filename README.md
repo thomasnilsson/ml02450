@@ -5,7 +5,7 @@ Tip: *The functions can also be used as a result-checking mechanism if you still
 ## Install
 Install this package with pip:
 ```bash
-pip install ml02450
+pip install --ignore-installed ml02450
 ```
 
 ## Usage
