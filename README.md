@@ -24,7 +24,7 @@ Given a classification problem with 25 observations in total, with 5 of them bei
 ```python
 miss = np.zeros(25)
 miss[:5] = 1
-ml.adaboost(miss, rounds=1)
+teadaboost(miss, rounds=1)
 ```
 
 The weights are as follows:
@@ -81,7 +81,7 @@ f1,f2,f3,f4,f5,f6,f7,f8,f9,f10 = X.T
 y = [1,1,1,2,2,2,2,2,3,3]
 x = [1,1,0]
 
-ml.naive_bayes(y, x, f1, f2, f6)
+tenaive_bayes(y, x, f1, f2, f6)
 ```
 
 The probabilities ![](https://tex.s2cms.ru/svg/%24P%28y%3Dc%20%5Cmid%20f_1%3D1%2C%20f_2%3D1.%20f_6%3D0%29%24) for ![](https://tex.s2cms.ru/svg/%24c%3D1%2C2%2C3%24) is given by the following vector:
@@ -93,7 +93,7 @@ The answer is therefore ![](https://tex.s2cms.ru/svg/%24y%3D0.45%24).
 ### Support
 Given the transaction matrix, the support of the item-set ![](https://tex.s2cms.ru/svg/%24%5C%7Bf_1%2C%20f_3%2C%20f_8%2C%20f_9%2C%20f_2%2C%20f_6%2C%20f_7%5C%7D%24)  can be calculated using the `supp(I)` function: 
 ```python
-ml.supp([f1,f3,f8,f9,f2,f6,f7])
+tesupp([f1,f3,f8,f9,f2,f6,f7])
 ```
 Output:
 ```python
@@ -105,7 +105,7 @@ Given the transaction matrix, what is the confidence of the rule ![](https://tex
 ```python
 a = [f1,f3,f8,f9]
 b = [f2,f6,f7]
-ml.conf(a,b)
+teconf(a,b)
 ```
 Output:
 ```python
@@ -122,13 +122,13 @@ Given a 2x2 confusion matrix with:
 Calculating the accuracy, error rate, recall, and much more, is done as follows:
 ```python
 M = [[18,12],[9,15]]
-ml.confusion_matrix(M)
+teconfusion_matrix(M)
 ```
 
 Alternatively, by providing the attributes directly:
 
 ```python
-ml.confusion_matrix(tp=18, fn=12, tn=15, fp=9)
+teconfusion_matrix(tp=18, fn=12, tn=15, fp=9)
 ```
 
 Output:
@@ -149,7 +149,7 @@ o1 = np.array([68.1, 165.4])
 o3 = np.array([68.1, 111.1])
 o4 = np.array([44.74, 32.5])
 
-ml.density(o1) / np.mean([ml.density(o3), ml.density(o4)])
+tedensity(o1) / np.mean([tedensity(o3), tedensity(o4)])
 ```
 
 Output:
