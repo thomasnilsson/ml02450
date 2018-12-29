@@ -5,26 +5,45 @@ Tip: *The functions can also be used as a result-checking mechanism if you still
 ## Install
 Install this package with pip:
 ```bash
-pip install --ignore-installed ml02450
+pip install ml02450
 ```
+Disclaimer: *The author of most of this package is [Tue Herlau](https://www.dtu.dk/english/Service/Phonebook/Person?id=43504&cpid=109221&tab=1)*
 
 ## Usage
 Import library in python with:
 ```python
-import ml02450 as ml
+import toolbox_extended as te
+import toolbox_02450 as tb
 import numpy as np
 ```
-
 Most library functions require numpy vectors as inputs, so numpy needs to be imported as well.
 
-## Examples from exam sets
+## Usage of the main toolbox
+
+Whenever you would normally use toolbox functions such as 
+
+```python
+density, log_density = gausKernelDensity(X,w)
+```
+
+Instead, simply use the `tb.` as the module prefix:
+
+```python
+density, log_density = tb.gausKernelDensity(X,w)
+```
+
+This accomplishes two things:
+ * No namespace pollution
+ * The toolbox being much easier to use in Jupyter Notebooks
+ 
+## Usage of the extended toolbox
 ### AdaBoost
 Given a classification problem with 25 observations in total, with 5 of them being misclassified in round 1, the weights can be calculated as:
 
 ```python
 miss = np.zeros(25)
 miss[:5] = 1
-teadaboost(miss, rounds=1)
+te.adaboost(miss, rounds=1)
 ```
 
 The weights are as follows:
@@ -81,7 +100,7 @@ f1,f2,f3,f4,f5,f6,f7,f8,f9,f10 = X.T
 y = [1,1,1,2,2,2,2,2,3,3]
 x = [1,1,0]
 
-tenaive_bayes(y, x, f1, f2, f6)
+te.naive_bayes(y, x, f1, f2, f6)
 ```
 
 The probabilities ![](https://tex.s2cms.ru/svg/%24P%28y%3Dc%20%5Cmid%20f_1%3D1%2C%20f_2%3D1.%20f_6%3D0%29%24) for ![](https://tex.s2cms.ru/svg/%24c%3D1%2C2%2C3%24) is given by the following vector:
@@ -93,7 +112,7 @@ The answer is therefore ![](https://tex.s2cms.ru/svg/%24y%3D0.45%24).
 ### Support
 Given the transaction matrix, the support of the item-set ![](https://tex.s2cms.ru/svg/%24%5C%7Bf_1%2C%20f_3%2C%20f_8%2C%20f_9%2C%20f_2%2C%20f_6%2C%20f_7%5C%7D%24)  can be calculated using the `supp(I)` function: 
 ```python
-tesupp([f1,f3,f8,f9,f2,f6,f7])
+te.supp([f1,f3,f8,f9,f2,f6,f7])
 ```
 Output:
 ```python
@@ -105,7 +124,7 @@ Given the transaction matrix, what is the confidence of the rule ![](https://tex
 ```python
 a = [f1,f3,f8,f9]
 b = [f2,f6,f7]
-teconf(a,b)
+te.conf(a,b)
 ```
 Output:
 ```python
@@ -122,13 +141,13 @@ Given a 2x2 confusion matrix with:
 Calculating the accuracy, error rate, recall, and much more, is done as follows:
 ```python
 M = [[18,12],[9,15]]
-teconfusion_matrix(M)
+te.confusion_matrix(M)
 ```
 
 Alternatively, by providing the attributes directly:
 
 ```python
-teconfusion_matrix(tp=18, fn=12, tn=15, fp=9)
+te.confusion_matrix(tp=18, fn=12, tn=15, fp=9)
 ```
 
 Output:
@@ -149,7 +168,7 @@ o1 = np.array([68.1, 165.4])
 o3 = np.array([68.1, 111.1])
 o4 = np.array([44.74, 32.5])
 
-tedensity(o1) / np.mean([tedensity(o3), tedensity(o4)])
+te.density(o1) / np.mean([te.density(o3), te.density(o4)])
 ```
 
 Output:
